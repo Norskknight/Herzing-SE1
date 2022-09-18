@@ -19,11 +19,38 @@
 //like to have
 //  enum
 //      states
-//          [Clear, Cloudy, Raining, and Severe Weather]
+//          [Clear, Cloudy, Raining, and SevereWeather]
 //      events
-//            [Getting Warmer, Getting Colder, Humidity is Increasing, Wind is Increasing]
+//            [Warmer, Colder, Humidity, Wind ]
 //      transition
 //          left,none,right
+//should not add
+//  more events/states
+
+
+enum transition{
+    left,
+    none,
+    right
+}
+
+enum event{
+    Warmer,
+    Colder,
+    Humidity,
+    Wind
+}
+enum state{
+    Clear,
+    Cloudy,
+    Raining,
+    SevereWeather
+}
+
+//days class
+class Day{
+}
+
 
 public class Main {
     public static void main(String[] args) {
