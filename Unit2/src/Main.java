@@ -47,6 +47,7 @@ enum State{
 class Day {
     //day
     State CurrentState;
+    public int events;
     public Day(State CurrentState) {
         this.CurrentState = CurrentState;
 
@@ -110,6 +111,7 @@ class Day {
                 System.out.println("the Wind is Decreasing");
                 break;
         }
+        events++;
     }
     private void display() {
         System.out.println(CurrentState+"\n");
@@ -121,9 +123,10 @@ class Day {
 public class Main {
     public static void main(String[] args) {
         Day today = new Day(State.Clear);
-        for (int x=0;x<5; x++) {
+        for (int x = today.events;x<5;) {
             System.out.println(x);
             today.StateChange(today.CallTransition());
+            x = today.events;
         }
 
 
