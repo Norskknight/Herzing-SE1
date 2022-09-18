@@ -55,7 +55,6 @@ class Day {
     public Transition CallTransition(){
         // random number 0-2
         int random = (int) Math.floor(Math.random()*3);
-        System.out.println(random);
         return Transition.values()[random];
     }
     public void StateChange(Transition transition){
@@ -70,7 +69,7 @@ class Day {
                 break;
             case none:
                 //0 no change display
-                System.out.println("no change");
+                //System.out.println("no change");
                 display();
                 break;
             case right:
@@ -114,7 +113,7 @@ class Day {
         events++;
     }
     private void display() {
-        System.out.println(CurrentState+"\n");
+        System.out.println(CurrentState);
     }
 }
 
@@ -122,13 +121,17 @@ class Day {
 
 public class Main {
     public static void main(String[] args) {
-        Day today = new Day(State.Clear);
-        for (int x = today.events;x<5;) {
-            System.out.println(x);
-            today.StateChange(today.CallTransition());
-            x = today.events;
-        }
+State next = State.Clear;
+        for (int y = 0; y < 7; y++){
+            Day today = new Day(next);
+            System.out.println("Day " + (y+1));
+            for (int x = today.events; x < 5; ) {
+                //creates an event and displays the state change
+                today.StateChange(today.CallTransition());
+                x = today.events;
 
-
+            }
+            next=today.CurrentState;
+    }
     }
 }
