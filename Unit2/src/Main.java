@@ -20,27 +20,23 @@
 //  enum
 //      states
 //          [Clear, Cloudy, Raining, and SevereWeather]
-//      events
-//            [Warmer, Colder, Humidity, Wind ]
+//     events
+//            [temp, Humidity, Wind ]
 //      transition
 //          left,none,right
 //should not add
+// e
 //  more events/states
 
 
-enum transition{
+
+
+enum Transition{
     left,
     none,
     right
 }
-
-enum event{
-    Warmer,
-    Colder,
-    Humidity,
-    Wind
-}
-enum state{
+enum State{
     Clear,
     Cloudy,
     Raining,
@@ -48,12 +44,88 @@ enum state{
 }
 
 //days class
-class Day{
+class Day {
+    //day
+    State CurrentState;
+    public Day(State CurrentState) {
+        this.CurrentState = CurrentState;
+
+    }
+    public Transition CallTransition(){
+        // random number 0-2
+        int random = (int) Math.floor(Math.random()*3);
+        System.out.println(random);
+        return Transition.values()[random];
+    }
+    public void StateChange(Transition transition){
+        switch(transition){
+            case left:
+                if (CurrentState != State.Clear) {
+                    //-1
+                    CauseEvent(CurrentState,transition);
+                    CurrentState = State.values()[CurrentState.ordinal() - 1];
+                    display();
+                }
+                break;
+            case none:
+                //0 no change display
+                System.out.println("no change");
+                display();
+                break;
+            case right:
+                if (CurrentState != State.SevereWeather) {
+                    //+1
+                    CauseEvent(CurrentState, transition);
+                    CurrentState = State.values()[CurrentState.ordinal() + 1];
+                    display();
+                }
+                break;
+            //+1
+
+        }
+    }
+    //event logic
+    private void CauseEvent(State currentState,Transition transition) {
+        switch(currentState){
+            case Clear:
+                System.out.println("the temperature is Getting Colder");
+                break;
+            case Cloudy:
+                if (transition.ordinal()==0){
+                    System.out.println("the temperature is Getting Warmer");
+                }else {
+                    System.out.println("the Humidity is Increasing");
+                }
+                break;
+
+            case Raining:
+                if (transition.ordinal()==0){
+                    System.out.println("the Humidity is Decreasing");
+                }else {
+                    System.out.println("the Wind is Increasing");
+                }
+                break;
+
+            case SevereWeather:
+                System.out.println("the Wind is Decreasing");
+                break;
+        }
+    }
+    private void display() {
+        System.out.println(CurrentState+"\n");
+    }
 }
+
 
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Day today = new Day(State.Clear);
+        for (int x=0;x<5; x++) {
+            System.out.println(x);
+            today.StateChange(today.CallTransition());
+        }
+
+
     }
 }
