@@ -41,19 +41,19 @@ enum State{
  **/
 
 public class unitTwo {
-    unitTwo(){
-    State next = State.Clear;
-    for (int y = 0; y < 7; y++){
-        Day today = new Day(next);
-        System.out.println("Day " + (y+1));
-        for (int x = today.events; x < 5; ) {
-            //display current state
-            today.display();
-            //creates an event and displays the state change
-            today.StateChange(today.CallTransition());
-            x = today.events;
+    public void go(){
+        State next = State.Clear;
+        for (int y = 0; y < 7; y++){
+            Day today = new Day(next);
+            System.out.println("Day " + (y+1));
+            for (int x = today.events; x < 5; ) {
+                //display current state
+                today.display();
+                //creates an event and displays the state change
+                today.StateChange(today.CallTransition());
+                x = today.events;
+            }
+            next=today.CurrentState;
         }
-        next=today.CurrentState;
     }
-}
 }
