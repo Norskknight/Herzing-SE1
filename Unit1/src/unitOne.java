@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //The code must run (and a screenshot of the running code in the ReadMe file on GitHub)
 
 //If the terminal/console is not in the screenshot, it will not have worked as it will be considered wrong.
@@ -6,8 +8,8 @@
 //Player input can either be a string or integer to select rack/paper/scissors.
 //A tally of wins should be kept, and after the player chooses to end the game, the tally should print out for both players.
 
-import java.util.Scanner;
-public class Main {
+
+public class unitOne {
 
     private static short entered;
 
@@ -17,11 +19,8 @@ public class Main {
         scissors
     }
 
-    public static void main(String[] args) {
-        int playerOneWins = 0;
-        int playerTwoWins = 0;
-        int tieds =0;
-        boolean playing = true;
+    public void play() {
+       
         //rules
         //paper>rock>scissors
         //2>1>3>2>1
@@ -32,11 +31,24 @@ public class Main {
         //1 3 true
         //2 1 true
         //3 2 true
-
         //start
-        System.out.println("Two Player Rock, Paper, Scissors");
+        
+        twoplayergame();
+    }
+
+    public void start(){
+        System.out.println("do you want a two player or one player game? (1,2)");
+
+    }
+    public void twoplayergame(){
+        int playerOneWins = 0;
+        int playerTwoWins = 0;
+        int tieds =0;
+        boolean playing = true;
+    System.out.println("Two Player Rock, Paper, Scissors");
         while (playing == true) {
             Scanner playerInput = new Scanner(System.in);  // Create a Scanner object
+
             System.out.println("1 : rock");
             System.out.println("2 : paper");
             System.out.println("3 : scissors");
@@ -86,15 +98,17 @@ public class Main {
             if(answer.equals("n")){
             break;
             }
+            
         }
         //print display
         System.out.println("Thank out for playing");
         System.out.println("player one has won " + playerOneWins + " times");
         System.out.println("player Two has won " + playerTwoWins + " times");
         System.out.println("players have tied " + tieds + " times");
+        
     }
 
-    private static int checkWinner(options playerOneOption, options playerTwoOption) {
+    private int checkWinner(options playerOneOption, options playerTwoOption) {
         int display = 0;
         if (playerOneOption.equals(options.rock)) {
             switch (playerTwoOption) {
@@ -126,4 +140,4 @@ public class Main {
         }
         return display;
     }
-    }
+}
