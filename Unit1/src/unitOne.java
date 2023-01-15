@@ -8,20 +8,7 @@ import java.util.Scanner;
 //Player input can either be a string or integer to select rack/paper/scissors.
 //A tally of wins should be kept, and after the player chooses to end the game, the tally should print out for both players.
 
-
-public class unitOne {
-
-    private static short entered;
-
-    enum options{
-        rock,
-        paper,
-        scissors
-    }
-
-    public void play() {
-       
-        //rules
+ //rules
         //paper>rock>scissors
         //2>1>3>2>1
         // #=# tie
@@ -32,23 +19,42 @@ public class unitOne {
         //2 1 true
         //3 2 true
         //start
-        
-        twoplayergame();
+public class unitOne {
+    Scanner playerInput = new Scanner(System.in);  // Create a Scanner object
+
+    enum options{
+        rock,
+        paper,
+        scissors
+    }
+
+    public void play() {
+        start();
+        playerInput.close();
+       
     }
 
     public void start(){
         System.out.println("do you want a two player or one player game? (1,2)");
+        int player = playerInput.nextInt();
+        if(player==1){
 
+        }else if(player==2){
+            twoplayergame();
+        }else{
+
+        }
     }
     public void twoplayergame(){
+       
+
         int playerOneWins = 0;
         int playerTwoWins = 0;
         int tieds =0;
         boolean playing = true;
     System.out.println("Two Player Rock, Paper, Scissors");
         while (playing == true) {
-            Scanner playerInput = new Scanner(System.in);  // Create a Scanner object
-
+            
             System.out.println("1 : rock");
             System.out.println("2 : paper");
             System.out.println("3 : scissors");
