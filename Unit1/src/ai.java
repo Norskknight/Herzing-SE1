@@ -36,11 +36,11 @@ public class ai {
         public abstract State previousState();
     }
 
-public State choose(){
+public int choose(){
 Random ran = new Random();
-int choice = ran.nextInt(3);
-State value = State.values()[choice];
+int choice = ran.nextInt(3) + 1;
+//State value = State.values()[choice];
 
- return value;
+return choice;
 }
 }
