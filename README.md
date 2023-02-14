@@ -18,12 +18,19 @@
 ### this project is about creating an FSM and using it to simulate 7 days of weather with 5 event changes each day.
 3 options for weather to follow a list left right and none.
 the list of states was  Clear <-> Cloudy <-> Raining <-> Severe Weather  
+
 with transitions between weather states:
 [Getting Warmer, Getting Colder, Humidity is Increasing, Wind is Increasing}
 #### running Unit2/src/Main gets the resulting output  
-##### Images of commandline weather cycle Finite State Machine. 
-<details><summary>Day one</summary>
 
+##### Images of commandline weather cycle Finite State Machine. 
+
+#### selecting only one day.
+
+![day_selector 1](https://user-images.githubusercontent.com/6807977/218885902-a568973d-65f1-4983-afcd-7211d042750d.png)
+
+
+<details><summary>Day one</summary>
 ![commandLine day1](Unit2/images/output1.PNG)
 </details>
 <details><summary>Day Two</summary>
