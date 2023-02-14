@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
 //The code must run (and a screenshot of the running code in the ReadMe file on GitHub)
-
 //If the terminal/console is not in the screenshot, it will not have worked as it will be considered wrong.
 //The game should be two players, so no AI (unless you want that blue ribbon)
 //There should be a while loop asking players to either continue playing or stop playing after each round (y/n answer)
 //Player input can either be a string or integer to select rack/paper/scissors.
 //A tally of wins should be kept, and after the player chooses to end the game, the tally should print out for both players.
-
  //rules
         //paper>rock>scissors
         //2>1>3>2>1
@@ -20,7 +18,7 @@ import java.util.Scanner;
         //3 2 true
         //start
 public class unitOne {
-    Scanner playerInput = new Scanner(System.in);  // Create a Scanner object
+    Scanner playerInput;  // Create a Scanner object
 
     enum options{
         rock,
@@ -28,7 +26,8 @@ public class unitOne {
         scissors
     }
 
-    public void play() {
+    public void play(Scanner input) {
+        playerInput = input;
         start();
         playerInput.close();
        
@@ -47,8 +46,6 @@ public class unitOne {
         }
     }
     public void game(boolean AI){
-       
-        boolean Ai;
         String aitrue;
            
             if (AI){

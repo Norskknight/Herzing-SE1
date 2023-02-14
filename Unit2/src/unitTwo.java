@@ -28,6 +28,8 @@
 // e
 //  more events/states
 
+import java.util.Scanner;
+
 import FSMWeatherCycle.Day;
 import FSMWeatherCycle.State;
 
@@ -41,9 +43,25 @@ enum State{
  **/
 
 public class unitTwo {
-    public void go(){
+  Scanner input;
+     
+
+static void question(){
+    System.out.println("enter how many days to simulate_(0 will be defalt 7 days):");
+}
+
+    public void go(Scanner input){
+
+
+        question();
+       int days = input.nextInt();
+
+        if (days== 0){
+            days =7;
+        }
+
         State next = State.Clear;
-        for (int y = 0; y < 7; y++){
+        for (int y = 0; y < days; y++){
             Day today = new Day(next);
             System.out.println("Day " + (y+1));
             for (int x = today.events; x < 5; ) {
@@ -55,5 +73,6 @@ public class unitTwo {
             }
             next=today.CurrentState;
         }
+        input.close();
     }
 }
