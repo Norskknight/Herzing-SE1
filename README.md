@@ -3,8 +3,13 @@
 <details>
 <summary>Unit one</summary>
   
+  ###This project was for a two player game of rock paper scissers for a new addition i added an ai
+  
 ##### Image of commandline Rock , paper , Scissers game.
-![commandLine image](Unit1/images/commandLine.PNG)
+![commandLine image](https://github.com/Norskknight/Herzing-SE1/blob/main/Unit1/images/twoplayer%20game.PNG)
+
+##### Image of ai commandline Rock , paper , Scissers game.
+[AI player](https://github.com/Norskknight/Herzing-SE1/blob/main/Unit1/images/AI%20game.PNG)
 </details>
 
 <details>
