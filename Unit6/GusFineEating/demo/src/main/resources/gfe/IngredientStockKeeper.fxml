@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gfe.IngredientStockKeeperController">
+
+    <Label text="Ingredient Stock Keeper" styleClass="title-label" />
+
+    <HBox spacing="10">
+        <Label text="Ingredient Name:" />
+        <TextField fx:id="ingredientNameTextField" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Quantity:" />
+        <TextField fx:id="quantityTextField" />
+    </HBox>
+
+    <Button text="Add Ingredient" onAction="#addIngredient" />
+
+    <TableView fx:id="ingredientTable">
+        <columns>
+            <TableColumn text="Ingredient Name" fx:id="nameColumn" />
+            <TableColumn text="Quantity" fx:id="quantityColumn" />
+        </columns>
+    </TableView>
+
+</VBox>

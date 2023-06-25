@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gfe.AdminPageController">
+
+    <top>
+        <HBox>
+            <Label text="Employee Management" styleClass="title-label" />
+            <Button text="Add Employee" onAction="#openAddEmployeeDialog" />
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="employeeTable">
+            <columns>
+                <TableColumn text="ID" fx:id="idColumn" />
+                <TableColumn text="Name" fx:id="nameColumn" />
+                <TableColumn text="Position" fx:id="positionColumn" />
+                <TableColumn text="Actions" fx:id="actionsColumn" />
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
